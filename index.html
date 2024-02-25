@@ -48,8 +48,8 @@
       .then(function(data) {
         overlayMaps["GeoJSON Data"] = L.geoJSON(data, {
           onEachFeature: function(feature, layer) {
-            if (feature.properties && feature.properties.DISCHARGE_CFS) {
-              layer.bindPopup("Discharge: " + feature.properties.DISCHARGE_CFS + " CFS");
+            if (feature.properties && feature.properties.DISCHARGE_CFS && feature.properties.SAMPLE_ID) {
+          layer.bindPopup("Sample ID: " + feature.properties.SAMPLE_ID + "<br>Discharge: " + feature.properties.DISCHARGE_CFS + " CFS");
             }
           }
         }).addTo(map);
